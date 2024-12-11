@@ -18,3 +18,6 @@ To start the exploration run this command in turtlebot (running in turtlebot to 
 ```
 ros2 run autonomous_exploration control
 ```
+## Robot Modification
+
+We were using lattepanda insead of raspi, therefore an external powerbank was used. To have better CG we modified the wheel mount directly under the powerbank.
