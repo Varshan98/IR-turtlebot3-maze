@@ -10,6 +10,6 @@ ros2 launch autonomous_exploration autonomous_exploration.launch.py
 ```
 
 To start the exploration run this command:
-'''
+```
 ros2 run autonomous_exploration control
-'''
+```
