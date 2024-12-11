@@ -7,7 +7,6 @@ To reduce the computation on the turtlebot, run the only the following in turtle
 ```
 ros2 launch turtlebot3_bringup robot.launch.py
 ros2 run image_publisher image_publisher
- 
 ```
 The launch files and image detection are run in external PC using the following code:
 ```
