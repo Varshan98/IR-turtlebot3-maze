@@ -15,7 +15,7 @@ ros2 run yolo_detection yolo_detection_node
 ros2 launch autonomous_exploration autonomous_exploration.launch.py
 ```
 
-To start the exploration run this command:
+To start the exploration run this command in turtlebot (running in turtlebot to prevent network lag):
 ```
 ros2 run autonomous_exploration control
 ```
