@@ -95,21 +95,21 @@ class ObjectProcesser(Node):
             for detection_mode in self.detection_mode:
                 for detection in cv_record.detections:
                     object_angle, object_distance = None, None
-                    # if detection_mode == 0:
-                    #     object_angle, object_distance = self.bounding_box_detection_mode(detection,closest_lidar_records)
-                    #     timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - 0.5*((closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)) + (closest_lidar_records[1].timestamp_sec + closest_lidar_records[1].timestamp_nanosec  * pow(10,-9))))
-                    # elif detection_mode == 1:
-                    #     object_angle, object_distance = self.center_detection_mode(detection,closest_lidar_records)
-                    #     timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)))
-                    # elif detection_mode == 2:
-                    #     object_angle, object_distance = self.ml_depth_detection_mode(detection,closest_image_record)
-                    #     timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_image_record.timestamp_sec + closest_image_record.timestamp_nanosec  * pow(10,-9)))
+                    if detection_mode == 0:
+                        object_angle, object_distance = self.bounding_box_detection_mode(detection,closest_lidar_records)
+                        timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - 0.5*((closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)) + (closest_lidar_records[1].timestamp_sec + closest_lidar_records[1].timestamp_nanosec  * pow(10,-9))))
+                    elif detection_mode == 1:
+                        object_angle, object_distance = self.center_detection_mode(detection,closest_lidar_records)
+                        timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)))
+                    elif detection_mode == 2:
+                        object_angle, object_distance = self.ml_depth_detection_mode(detection,closest_image_record)
+                        timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_image_record.timestamp_sec + closest_image_record.timestamp_nanosec  * pow(10,-9)))
                     
-                    object_angle, object_distance = self.center_detection_mode(detection,closest_lidar_records)
-                    timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)))
-                    print("Timestamp Difference Lidar - Image",timestamp_difference / pow(10,9))
-                    timestamp_difference_R = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_robot_position_record.timestamp_sec + closest_robot_position_record.timestamp_nanosec  * pow(10,-9)))
-                    print("Timestamp Difference Robot - Image",timestamp_difference_R / pow(10,9))
+                    # object_angle, object_distance = self.center_detection_mode(detection,closest_lidar_records)
+                    # timestamp_difference = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_lidar_records[0].timestamp_sec + closest_lidar_records[0].timestamp_nanosec  * pow(10,-9)))
+                    # print("Timestamp Difference Lidar - Image",timestamp_difference / pow(10,9))
+                    # timestamp_difference_R = abs((unprocessed_object.timestamp_sec + unprocessed_object.timestamp_nanosec * pow(10,-9)) - (closest_robot_position_record.timestamp_sec + closest_robot_position_record.timestamp_nanosec  * pow(10,-9)))
+                    # print("Timestamp Difference Robot - Image",timestamp_difference_R / pow(10,9))
 
                     if object_angle == None or object_distance == None or np.isnan(object_angle) or np.isnan(object_distance):
                         self.get_logger().info("Object Angle or Object Distance not found")
