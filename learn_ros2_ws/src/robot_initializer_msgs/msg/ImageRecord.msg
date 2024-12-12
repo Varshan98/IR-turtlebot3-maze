@@ -1,0 +1,3 @@
+int32 timestamp_sec
+int32 timestamp_nanosec
+sensor_msgs/CompressedImage raw_image

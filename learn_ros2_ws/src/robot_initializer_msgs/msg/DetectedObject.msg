@@ -1,0 +1,6 @@
+int32 timestamp_sec
+int32 timestamp_nanosec
+robot_initializer_msgs/RobotPosition[] robot_position
+robot_initializer_msgs/LidarRecord[] lidar_record
+robot_initializer_msgs/ImageRecord[] image_record
+yolo_msgs/DetectionArray cv_record
