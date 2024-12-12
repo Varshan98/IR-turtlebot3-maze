@@ -68,8 +68,8 @@ class ObjectProcesser(Node):
         robot_state_timer_period = 0.5
         self.robot_state_timer = self.create_timer(robot_state_timer_period,self.set_robot_state_time)
 
-        # self.br = CvBridge()
-        # self.pipe = pipeline(task="depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf")
+        self.br = CvBridge()
+        self.pipe = pipeline(task="depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf")
 
     def extract_object_from_detections(self,unprocessed_object):
         if not self.disable_flag:
