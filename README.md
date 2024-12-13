@@ -2,7 +2,7 @@
 The package uses a frontier and yolo to map a maze and record the images in the maze using Yolo.
 
 ## Requirements
-This project runs on ROS2 Humble
+ROS2 Humble
 
 ## Launch Commands
 
