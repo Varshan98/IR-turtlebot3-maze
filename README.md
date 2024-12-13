@@ -29,4 +29,4 @@ We were using lattepanda insead of raspi, therefore an external powerbank was us
 ![Alt Text](/photo_2024-12-11_16-36-39.jpg)
 
 ## Acknowledgments
-This project uses the following models and tools:
+This project uses https://github.com/nadja4/turtlebot3-ros2-autonomous-frontier-based-exploration.git package for frontier exploration.
