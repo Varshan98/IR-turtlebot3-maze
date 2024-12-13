@@ -2,9 +2,9 @@
 The package uses a frontier and yolo to map a maze and record the images in the maze using Yolo.
 
 ## Requirements
-ROS2 Humble
-Slam Toolbox
-Turtlebot3 Package
+ROS2 Humble //
+Slam Toolbox //
+Turtlebot3 Package //
 
 ## Launch Commands
 
